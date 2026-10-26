@@ -1,6 +1,6 @@
 # Airliny Status
 
-A bilingual static status page hosted on GitHub Pages. GitHub Actions checks monitored sites every five minutes and stores real results. Optional email subscriptions use a Cloudflare Worker + D1 and Resend; the static page never receives mail credentials.
+A bilingual static status page hosted on GitHub Pages. GitHub Actions checks monitored sites every five minutes and stores real results. Email subscriptions use a Cloudflare Worker + D1 and Alibaba Cloud DirectMail SMTP; the static page never receives mail credentials.
 
 ## Email subscriptions (free-tier friendly)
 
@@ -13,11 +13,18 @@ This feature requires one-time setup. It is not live until the Cloudflare Worker
 3. Open the database's **Console** and run the complete SQL in [cloudflare/migrations/0001_init.sql](cloudflare/migrations/0001_init.sql).
 4. Copy the database ID into `cloudflare/wrangler.toml` replacing `REPLACE_WITH_YOUR_D1_DATABASE_ID`.
 
-### 2. Configure Resend email
+### 2. Check Alibaba Cloud DirectMail SMTP details
 
-1. Create a Resend account and an API key.
-2. Verify a sender domain you control in Resend (DNS records must be added at your DNS provider). Use a sender such as `Airliny Status <status@your-verified-domain.example>`.
-3. Do not put the API key in this repository.
+In Alibaba Cloud DirectMail, open **Mail Settings → Sender Addresses** and confirm SMTP sending is enabled and an SMTP password is configured. Use the endpoint for the region selected in your console. Current documented endpoints include:
+
+- China East 1 (Hangzhou): `smtpdm.aliyun.com`
+- Singapore: `smtpdm-ap-southeast-1.aliyuncs.com`
+- US East (Virginia): `smtpdm-us-east-1.aliyuncs.com`
+- Germany (Frankfurt): `smtpdm-eu-central-1.aliyuncs.com`
+
+This Worker uses implicit TLS on **port 465**. Cloudflare Workers blocks outbound TCP port 25, so do not configure port 25. Use the exact SMTP host and sender credentials from your DirectMail region. The SMTP username is usually the sender address, but follow the value shown in your console. Never paste credentials into chat or commit them to Git.
+
+Official docs: [SMTP endpoints](https://help.aliyun.com/zh/direct-mail/smtp-endpoints) and [sender address / SMTP password FAQ](https://help.aliyun.com/zh/direct-mail/sender-address-faqs).
 
 ### 3. Deploy Worker
 
@@ -29,7 +36,9 @@ npm install -g wrangler
 wrangler login
 wrangler d1 list
 # Edit wrangler.toml and set database_id first
-wrangler secret put RESEND_API_KEY
+wrangler secret put SMTP_HOST
+wrangler secret put SMTP_USERNAME
+wrangler secret put SMTP_PASSWORD
 wrangler secret put FROM_EMAIL
 wrangler secret put SITE_URL
 wrangler secret put MONITOR_SECRET
@@ -63,7 +72,7 @@ The monitor workflow calls the Worker after each check. The Worker sends mail on
 - Pending subscriptions require email confirmation; unsubscribe links contain unguessable random tokens.
 - Subscriber emails and tokens live in D1, not in the public Git repository.
 - The monitor endpoint requires `MONITOR_SECRET`; never expose it in frontend code.
-- Resend requires a verified sending domain for production delivery. Free service quotas and account verification requirements may change.
+- Alibaba Cloud DirectMail requires an eligible sender address and correctly configured SMTP credentials. SMTP endpoint and credentials are region-specific.
 - Worker notifications run after the monitor script and before the monitoring data commit. If the notification call fails, the workflow fails visibly rather than silently pretending it worked.
 - Consider adding rate limits/Turnstile before promoting the public form widely. A public endpoint can otherwise be abused to trigger confirmation emails.
 
