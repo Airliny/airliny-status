@@ -1,0 +1,37 @@
+name: Website monitoring
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/monitors.json"
+      - "scripts/monitor.py"
+      - ".github/workflows/monitor.yml"
+permissions:
+  contents: write
+concurrency:
+  group: status-monitor
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Run real HTTP checks
+        run: python3 scripts/monitor.py
+      - name: Commit monitoring data
+        run: |
+          if git diff --quiet -- data/status.json data/history.json; then
+            echo "No monitoring data changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/status.json data/history.json
+          git commit -m "chore: update real monitoring results"
+          git push
