@@ -24,6 +24,20 @@ jobs:
           ref: main
       - name: Run real HTTP checks
         run: python3 scripts/monitor.py
+      - name: Send subscriber notifications for state changes
+        env:
+          MONITOR_API_URL: ${{ secrets.MONITOR_API_URL }}
+          MONITOR_SECRET: ${{ secrets.MONITOR_SECRET }}
+        run: |
+          if [ -z "$MONITOR_API_URL" ] || [ -z "$MONITOR_SECRET" ]; then
+            echo "Subscription notifications are not configured; skipping."
+          else
+            curl --fail-with-body --silent --show-error --max-time 30 \\
+              -X POST "$MONITOR_API_URL/api/notify" \\
+              -H "Content-Type: application/json" \\
+              -H "X-Monitor-Secret: $MONITOR_SECRET" \\
+              --data-binary @data/status.json
+          fi
       - name: Commit monitoring data
         run: |
           if git diff --quiet -- data/status.json data/history.json; then
