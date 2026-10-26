@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS subscribers (email TEXT PRIMARY KEY, verified INTEGER NOT NULL DEFAULT 0, confirm_token TEXT, unsubscribe_token TEXT NOT NULL UNIQUE, lang TEXT NOT NULL DEFAULT 'zh', created_at TEXT NOT NULL, verified_at TEXT);
+CREATE INDEX IF NOT EXISTS idx_subscribers_verified ON subscribers(verified);
+CREATE TABLE IF NOT EXISTS monitor_state (monitor_id TEXT PRIMARY KEY, ok INTEGER NOT NULL, name TEXT NOT NULL, updated_at TEXT NOT NULL);
