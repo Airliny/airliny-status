@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T10:17:27Z",
+  "generated_at": "2026-10-26T10:26:46Z",
   "monitors": [
     {
       "id": "www",
@@ -17,9 +17,9 @@
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 816,
+      "response_ms": 776,
       "error": null,
-      "last_check": "2026-10-26T10:17:27Z"
+      "last_check": "2026-10-26T10:26:46Z"
     },
     {
       "id": "account",
@@ -37,13 +37,13 @@
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 1299,
+      "response_ms": 1174,
       "error": null,
-      "last_check": "2026-10-26T10:17:27Z"
+      "last_check": "2026-10-26T10:26:46Z"
     },
     {
       "id": "pan",
-      "name": "Airliny Pan",
+      "name": "Airliny Cloud",
       "url": "https://pan.airliny.com/",
       "group": "Pan",
       "timeout_seconds": 20,
@@ -57,9 +57,9 @@
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 660,
+      "response_ms": 573,
       "error": null,
-      "last_check": "2026-10-26T10:17:27Z"
+      "last_check": "2026-10-26T10:26:46Z"
     },
     {
       "id": "work",
@@ -77,9 +77,9 @@
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 649,
+      "response_ms": 556,
       "error": null,
-      "last_check": "2026-10-26T10:17:27Z"
+      "last_check": "2026-10-26T10:26:46Z"
     }
   ],
   "events": []
