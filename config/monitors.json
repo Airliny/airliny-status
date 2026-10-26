@@ -1,18 +1,34 @@
 [
   {
-    "id": "main-website",
-    "name": "Main website",
-    "url": "https://example.com/",
+    "id": "www",
+    "name": "Airliny 主站",
+    "url": "https://www.airliny.com/",
     "group": "Website",
-    "timeout_seconds": 15,
-    "expected_status": [200, 204, 301, 302]
+    "timeout_seconds": 20,
+    "expected_status": [200, 204, 301, 302, 307, 308]
   },
   {
-    "id": "api-health",
-    "name": "API health endpoint",
-    "url": "https://api.example.com/health",
-    "group": "API",
-    "timeout_seconds": 15,
-    "expected_status": [200]
+    "id": "account",
+    "name": "Airliny Account",
+    "url": "https://account.airliny.com/",
+    "group": "Account",
+    "timeout_seconds": 20,
+    "expected_status": [200, 204, 301, 302, 307, 308]
+  },
+  {
+    "id": "pan",
+    "name": "Airliny Pan",
+    "url": "https://pan.airliny.com/",
+    "group": "Pan",
+    "timeout_seconds": 20,
+    "expected_status": [200, 204, 301, 302, 307, 308]
+  },
+  {
+    "id": "work",
+    "name": "Airliny Work",
+    "url": "https://work.airliny.com/",
+    "group": "Work",
+    "timeout_seconds": 20,
+    "expected_status": [200, 204, 301, 302, 307, 308]
   }
 ]
