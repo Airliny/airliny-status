@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T09:44:36Z",
+  "generated_at": "2026-10-26T09:44:44Z",
   "monitors": [
     {
       "id": "main-website",
@@ -15,9 +15,9 @@
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 107,
+      "response_ms": 46,
       "error": null,
-      "last_check": "2026-10-26T09:44:36Z"
+      "last_check": "2026-10-26T09:44:44Z"
     },
     {
       "id": "api-health",
@@ -30,9 +30,9 @@
       ],
       "ok": false,
       "http_status": null,
-      "response_ms": 27,
+      "response_ms": 11,
       "error": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
-      "last_check": "2026-10-26T09:44:36Z"
+      "last_check": "2026-10-26T09:44:44Z"
     }
   ],
   "events": []
