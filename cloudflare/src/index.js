@@ -5,8 +5,8 @@ const corsHeaders={"Access-Control-Allow-Origin":"https://airliny.github.io","Ac
   for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
   return btoa(binary);
 }
-function wrapBase64(value) { return value.match(/.{1,76}/g)?.join("\\r\\n") || ""; }
-function encodedSubject(subject) { return "=?UTF-8?B?" + wrapBase64(base64Utf8(subject)).replace(/\\r\\n/g, "") + "?="; }
+function wrapBase64(value) { return value.match(/.{1,76}/g)?.join("\r\n") || ""; }
+function encodedSubject(subject) { return "=?UTF-8?B?" + wrapBase64(base64Utf8(subject)).replace(/\r\n/g, "") + "?="; }
 async function sendEmail(env, to, subject, html) {
   const host = env.SMTP_HOST;
   const port = Number(env.SMTP_PORT || 465);
