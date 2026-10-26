@@ -1,38 +1,85 @@
 {
-  "generated_at": "2026-10-26T09:44:44Z",
+  "generated_at": "2026-10-26T09:47:37Z",
   "monitors": [
     {
-      "id": "main-website",
-      "name": "Main website",
-      "url": "https://example.com/",
+      "id": "www",
+      "name": "Airliny 主站",
+      "url": "https://www.airliny.com/",
       "group": "Website",
-      "timeout_seconds": 15,
+      "timeout_seconds": 20,
       "expected_status": [
         200,
         204,
         301,
-        302
+        302,
+        307,
+        308
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 46,
+      "response_ms": 798,
       "error": null,
-      "last_check": "2026-10-26T09:44:44Z"
+      "last_check": "2026-10-26T09:47:37Z"
     },
     {
-      "id": "api-health",
-      "name": "API health endpoint",
-      "url": "https://api.example.com/health",
-      "group": "API",
-      "timeout_seconds": 15,
+      "id": "account",
+      "name": "Airliny Account",
+      "url": "https://account.airliny.com/",
+      "group": "Account",
+      "timeout_seconds": 20,
       "expected_status": [
-        200
+        200,
+        204,
+        301,
+        302,
+        307,
+        308
       ],
-      "ok": false,
-      "http_status": null,
-      "response_ms": 11,
-      "error": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
-      "last_check": "2026-10-26T09:44:44Z"
+      "ok": true,
+      "http_status": 200,
+      "response_ms": 1234,
+      "error": null,
+      "last_check": "2026-10-26T09:47:37Z"
+    },
+    {
+      "id": "pan",
+      "name": "Airliny Pan",
+      "url": "https://pan.airliny.com/",
+      "group": "Pan",
+      "timeout_seconds": 20,
+      "expected_status": [
+        200,
+        204,
+        301,
+        302,
+        307,
+        308
+      ],
+      "ok": true,
+      "http_status": 200,
+      "response_ms": 610,
+      "error": null,
+      "last_check": "2026-10-26T09:47:37Z"
+    },
+    {
+      "id": "work",
+      "name": "Airliny Work",
+      "url": "https://work.airliny.com/",
+      "group": "Work",
+      "timeout_seconds": 20,
+      "expected_status": [
+        200,
+        204,
+        301,
+        302,
+        307,
+        308
+      ],
+      "ok": true,
+      "http_status": 200,
+      "response_ms": 575,
+      "error": null,
+      "last_check": "2026-10-26T09:47:37Z"
     }
   ],
   "events": []
