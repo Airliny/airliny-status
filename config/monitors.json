@@ -1,0 +1,18 @@
+[
+  {
+    "id": "main-website",
+    "name": "Main website",
+    "url": "https://example.com/",
+    "group": "Website",
+    "timeout_seconds": 15,
+    "expected_status": [200, 204, 301, 302]
+  },
+  {
+    "id": "api-health",
+    "name": "API health endpoint",
+    "url": "https://api.example.com/health",
+    "group": "API",
+    "timeout_seconds": 15,
+    "expected_status": [200]
+  }
+]
