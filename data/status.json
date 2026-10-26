@@ -1,5 +1,39 @@
 {
-  "generated_at": null,
-  "monitors": [],
+  "generated_at": "2026-10-26T09:44:36Z",
+  "monitors": [
+    {
+      "id": "main-website",
+      "name": "Main website",
+      "url": "https://example.com/",
+      "group": "Website",
+      "timeout_seconds": 15,
+      "expected_status": [
+        200,
+        204,
+        301,
+        302
+      ],
+      "ok": true,
+      "http_status": 200,
+      "response_ms": 107,
+      "error": null,
+      "last_check": "2026-10-26T09:44:36Z"
+    },
+    {
+      "id": "api-health",
+      "name": "API health endpoint",
+      "url": "https://api.example.com/health",
+      "group": "API",
+      "timeout_seconds": 15,
+      "expected_status": [
+        200
+      ],
+      "ok": false,
+      "http_status": null,
+      "response_ms": 27,
+      "error": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
+      "last_check": "2026-10-26T09:44:36Z"
+    }
+  ],
   "events": []
 }

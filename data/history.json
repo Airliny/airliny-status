@@ -1,3 +1,18 @@
 {
-  "monitors": {}
+  "monitors": {
+    "main-website": [
+      {
+        "date": "2026-10-26",
+        "up": 1,
+        "total": 1
+      }
+    ],
+    "api-health": [
+      {
+        "date": "2026-10-26",
+        "up": 0,
+        "total": 1
+      }
+    ]
+  }
 }
