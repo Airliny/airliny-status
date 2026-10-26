@@ -1,0 +1,9 @@
+name = "airliny-status-subscriptions"
+main = "src/index.js"
+compatibility_date = "2026-10-26"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "airliny-status-subscriptions"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+migrations_dir = "migrations"
