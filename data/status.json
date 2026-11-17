@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T08:46:53Z",
+  "generated_at": "2026-11-17T17:54:43Z",
   "monitors": [
     {
       "id": "www",
@@ -17,9 +17,9 @@
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 1188,
+      "response_ms": 746,
       "error": null,
-      "last_check": "2026-11-17T08:46:53Z"
+      "last_check": "2026-11-17T17:54:43Z"
     },
     {
       "id": "account",
@@ -37,9 +37,9 @@
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 2014,
+      "response_ms": 1062,
       "error": null,
-      "last_check": "2026-11-17T08:46:53Z"
+      "last_check": "2026-11-17T17:54:43Z"
     },
     {
       "id": "pan",
@@ -57,9 +57,9 @@
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 972,
+      "response_ms": 562,
       "error": null,
-      "last_check": "2026-11-17T08:46:53Z"
+      "last_check": "2026-11-17T17:54:43Z"
     },
     {
       "id": "work",
@@ -77,9 +77,9 @@
       ],
       "ok": true,
       "http_status": 200,
-      "response_ms": 958,
+      "response_ms": 569,
       "error": null,
-      "last_check": "2026-11-17T08:46:53Z"
+      "last_check": "2026-11-17T17:54:43Z"
     }
   ],
   "events": []
